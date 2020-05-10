@@ -26,15 +26,7 @@
   user-select: none;
   color: hsl(200, 90%, 10%);
 }
-.dark-pagination-nav :global(.option svg path) {
-  fill: hsl(200, 90%, 10%);
-}
-.dark-pagination-nav :global(.option:first-child) {
-  border-radius: 3px 0 0 3px;
-}
-.dark-pagination-nav :global(.option:last-child) {
-  border-radius: 0 3px 3px 0;
-}
+
 .light-pagination-nav :global(.option.number),
 .light-pagination-nav :global(.option.ellipsis) {
   padding: 10px 15px;
