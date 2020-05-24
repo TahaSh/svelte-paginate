@@ -1,6 +1,6 @@
 {
   "name": "svelte-paginate",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "src/index.js",
   "description": "A Svelte plugin for paginating your data in no time",
   "license": "MIT",
