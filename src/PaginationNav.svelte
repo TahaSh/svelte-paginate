@@ -28,9 +28,6 @@
   function handleOptionClick (option) {
     dispatch('setPage', { page: option.value })
   }
-  export let setPage = (page) => {
-    currentPage = page
-  }
 </script>
 
 <div class="pagination-nav">
