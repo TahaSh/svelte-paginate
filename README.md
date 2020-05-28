@@ -5,7 +5,7 @@ A Svelte plugin for paginating your data in no time.
 ## Installation
 
 ```bash
-npm install -S svelte-paginate
+npm install -D svelte-paginate
 ```
 
 ## Usage
