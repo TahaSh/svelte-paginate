@@ -1,35 +1,43 @@
 {
-  "name": "svelte-paginate",
-  "version": "0.0.2",
-  "main": "src/index.js",
-  "description": "A Svelte plugin for paginating your data in no time",
+  "name": "svelte-paginate-ts",
+  "version": "0.0.1",
+  "description": "Svelte Paginate in TS. Forked from https://github.com/TahaSh/svelte-paginate",
   "license": "MIT",
+  "main": "src/main.js",
+  "svelte": "src/main.js",
+  "types": "src/main.ts",
+  "type": "module",
+  "keywords": [
+    "svelte",
+    "paginate",
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "ts": "tsc"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "@tsconfig/svelte": "^2.0.1",
+    "@types/jest": "^28.1.4",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.7",
+    "svelte-preprocess": "^4.9.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TahaSh/svelte-paginate"
+    "url": "https://github.com/bas-baskara/svelte-paginate-ts"
   },
-  "bugs": "https://github.com/TahaSh/svelte-paginate/issues",
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "npm-run-all": "^4.1.5",
-    "rollup": "^1.23.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-livereload": "^1.0.4",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-svelte": "^5.1.0",
-    "svelte": "^3.12.1"
-  },
-  "scripts": {
-    "autobuild": "rollup -c rollup.config.js -w",
-    "dev": "run-p start:dev autobuild",
-    "start:dev": "sirv example --single --dev",
-    "test": "jest"
-  },
-  "dependencies": {
-    "sirv-cli": "^0.4.4"
-  },
-  "type": "module"
+  "bugs": "https://github.com/bas-baskara/svelte-paginate-ts/issues",
+  "release": {
+    "branches": [
+      "master"
+    ]
+  }
 }
