@@ -13,11 +13,15 @@ npm install -D svelte-paginate
 ```html
 <script>
   import { paginate, LightPaginationNav } from 'svelte-paginate'
-
-  let items = [...]
+ 
   let currentPage = 1
   let pageSize = 4
-  $: paginatedItems = paginate({ items, pageSize, currentPage })
+  let items = []
+  $: {
+    items = myItems
+    currentPage = currentPage
+    paginatedItems = paginate({ items, pageSize, currentPage })
+  }
 </script>
 
 <ul class="items">

@@ -1,4 +1,4 @@
-import generate from '../src/generateNavigationOptions.js'
+import generate from '../src/generateNavigationOptions'
 import {
   PREVIOUS_PAGE,
   NEXT_PAGE,

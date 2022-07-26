@@ -1,7 +1,6 @@
 {
   "name": "svelte-paginate",
   "version": "0.0.1",
-  "main": "src/index.js",
   "description": "A Svelte plugin for paginating your data in no time",
   "license": "MIT",
   "repository": {
@@ -9,26 +8,31 @@
     "url": "https://github.com/TahaSh/svelte-paginate"
   },
   "bugs": "https://github.com/TahaSh/svelte-paginate/issues",
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "npm-run-all": "^4.1.5",
-    "rollup": "^1.23.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-livereload": "^1.0.4",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-svelte": "^5.1.0",
-    "svelte": "^3.12.1"
-  },
+  "main": "src/main.js",
+  "svelte": "src/main.js",
+  "types": "src/main.ts",
+  "type": "module",
+  "keywords": [
+    "svelte",
+    "paginate",
+    "typescript"
+  ],
   "scripts": {
-    "autobuild": "rollup -c rollup.config.js -w",
-    "dev": "run-p start:dev autobuild",
-    "start:dev": "sirv example --single --dev",
-    "test": "jest"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "ts": "tsc"
   },
-  "dependencies": {
-    "sirv-cli": "^0.4.4"
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "@tsconfig/svelte": "^2.0.1",
+    "@types/jest": "^28.1.4",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.7",
+    "svelte-preprocess": "^4.9.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
   }
 }
