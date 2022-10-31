@@ -1,18 +1,15 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  import generateNavigationOptions from './generateNavigationOptions'
-  import {
-    PREVIOUS_PAGE,
-    NEXT_PAGE,
-    ELLIPSIS
-  } from '../src/symbolTypes'
+  import { generateNavigationOptions } from './generateNavigationOptions'
+  import { SymbolType } from './types'
+  import type { NavigationOption } from './types'
 
   const dispatch = createEventDispatcher()
 
   export let totalItems = 0
   export let pageSize = 1
   export let currentPage = 1
-  export let limit = null
+  export let limit: number | undefined = undefined
   export let showStepOptions = false
 
   $: options = generateNavigationOptions({
@@ -25,7 +22,7 @@
 
   $: totalPages = Math.ceil(totalItems / pageSize)
 
-  function handleOptionClick (option) {
+  function handleOptionClick (option: NavigationOption) {
     dispatch('setPage', { page: option.value })
   }
 </script>
@@ -35,25 +32,26 @@
     <span
       class="option"
       class:number="{option.type === 'number'}"
-      class:prev="{option.type === 'symbol' && option.symbol === PREVIOUS_PAGE}"
-      class:next="{option.type === 'symbol' && option.symbol === NEXT_PAGE}"
+      class:prev="{option.type === 'symbol' && option.symbol === SymbolType.PREVIOUS_PAGE}"
+      class:next="{option.type === 'symbol' && option.symbol === SymbolType.NEXT_PAGE}"
       class:disabled="{
-        (option.type === 'symbol' && option.symbol === NEXT_PAGE && currentPage >= totalPages) ||
-        (option.type === 'symbol' && option.symbol === PREVIOUS_PAGE && currentPage <= 1)
+        (option.type === 'symbol' && option.symbol === SymbolType.NEXT_PAGE && currentPage >= totalPages) ||
+        (option.type === 'symbol' && option.symbol === SymbolType.PREVIOUS_PAGE && currentPage <= 1)
       }"
-      class:ellipsis="{option.type === 'symbol' && option.symbol === ELLIPSIS}"
+      class:ellipsis="{option.type === 'symbol' && option.symbol === SymbolType.ELLIPSIS}"
       class:active="{option.type === 'number' && option.value === currentPage}"
+      role="presentation"
       on:click="{() => handleOptionClick(option)}"
     >
       {#if option.type === 'number'}
         <slot name="number" value="{option.value}">
           <span>{option.value}</span>
         </slot>
-      {:else if option.type === 'symbol' && option.symbol === ELLIPSIS}
+      {:else if option.type === 'symbol' && option.symbol === SymbolType.ELLIPSIS}
         <slot name="ellipsis">
           <span>...</span>
         </slot>
-      {:else if option.type === 'symbol' && option.symbol === PREVIOUS_PAGE}
+      {:else if option.type === 'symbol' && option.symbol === SymbolType.PREVIOUS_PAGE}
         <slot name="prev">
           <svg
             style="width:24px;height:24px"
@@ -65,7 +63,7 @@
             />
           </svg>
         </slot>
-      {:else if option.type === 'symbol' && option.symbol === NEXT_PAGE}
+      {:else if option.type === 'symbol' && option.symbol === SymbolType.NEXT_PAGE}
         <slot name="next">
           <svg
             style="width:24px;height:24px"

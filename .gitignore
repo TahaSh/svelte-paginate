@@ -1,7 +1,8 @@
 .DS_Store
-npm-debug.log
-yarn-error.log
-.idea
-*.iml
-node_modules/
-example/bundle.*
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example

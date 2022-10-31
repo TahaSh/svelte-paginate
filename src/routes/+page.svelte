@@ -3,7 +3,7 @@
     paginate,
     LightPaginationNav,
     DarkPaginationNav
-  } from '../src'
+  } from '../lib/index'
   import { fade } from 'svelte/transition'
 
   let items = new Array(50)
